@@ -1,19 +1,53 @@
-<head>
-  <meta charset="UTF-8" />
-  <title>Блог</title>
-</head>
-<body>
+---
+const pageTitle = "Обо мне";
 
+const identity = {
+  firstName: "Егор",
+  country: "Россия",
+  occupation: "бездарь",
+  hobbies: ["лежать", "спать", "кушать"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Написание документации"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+---
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
     <a href="/">Главная</a>
-<a href="/about/">О сайте</a>
-<a href="/blog/">Блог</a>
+    <a href="/about/">О сайте</a>
+    <a href="/blog/">Блог</a>
+    <h1>{pageTitle}</h1>
+    <h2>... и моем новом сайте на Astro!</h2>
 
-  <h1>Мой сайт на Astro</h1>
-  <h1>Обо мне</h1>
-  <h2>... и моем новом сайте на Astro!</h2>
+    <p>Я прохожу вводный учебник по Astro. Это вторая страница моего сайта, и это первая страница, которую я создал самостоятельно!</p>
 
-  <p>Я прохожу вводный учебник по Astro. Это вторая страница моего сайта, и это первая страница, которую я создал самостоятельно!</p>
+    <p>Сайт будет обновляться по мере прохождения учебника, так что заходите сюда снова и следите за моим прогрессом!</p>
 
-  <p>Сайт будет обновляться по мере прохождения учебника, так что заходите сюда снова и следите за моим прогрессом!</p>
+<p>Несколько фактов обо мне:</p>
+<ul>
+  <li>Меня зовут {identity.firstName}.</li>
+  <li>Моя страна — {identity.country}, а род занятий — {identity.occupation}.</li>
+  {identity.hobbies.length >= 2 &&
+    <li>Два моих увлечения: {identity.hobbies[1]} и {identity.hobbies[2]}</li>
+  }
+</ul>
+<p>Мои навыки:</p>
+<ul>
+  {skills.map((skill) => <li>{skill}</li>)}
+</ul>
+{happy && <p>Я рад(а) изучать Astro!</p>}
 
-</body>
+{finished && <p>Я завершил(а) это руководство!</p>}
+
+{goal === 3 ? <p>Моя цель — завершить за 3 дня.</p> : <p>Моя цель — не 3 дня.</p>}
+
+  </body>
+</html>

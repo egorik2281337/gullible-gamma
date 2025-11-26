@@ -1,10 +1,14 @@
+---
+const pageTitle = "Главная";
+---
+
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
 
@@ -12,7 +16,7 @@
   <a href="/about/">О сайте</a>
   <a href="/blog/">Блог</a>
 
-  <h1>Astro</h1>
+  <h1>{pageTitle}</h1>
   <h1>Мой сайт на Astro</h1>
 </body>
 </html>
