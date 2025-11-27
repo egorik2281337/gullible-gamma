@@ -1,0 +1,74 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+const { title, pubDate, author, description, image, tags } = frontmatter;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+
+  <article class="post">
+
+    {image && (
+      <img class="cover" src={image.url} alt={image.alt} />
+    )}
+
+    <p class="meta">
+      <span> {new Date(pubDate).toLocaleDateString('ru-RU')}</span>
+      {author && <span>  {author}</span>}
+    </p>
+
+    {description && <p class="description">{description}</p>}
+
+    <slot />
+
+    {tags && (
+      <ul class="tags">
+        {tags.map((tag: unknown) => (
+          <li class="tag">{tag}</li>
+        ))}
+      </ul>
+    )}
+
+  </article>
+
+  <style>
+    .post {
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    .cover {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta {
+      color: #666;
+      margin-bottom: .5rem;
+    }
+
+    .description {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag {
+      background: #eef;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+  </style>
+
+</BaseLayout>

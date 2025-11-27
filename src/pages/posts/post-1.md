@@ -1,16 +1,13 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Моя первая запись в блоге'
 pubDate: 2022-07-01
 description: 'Это первый пост моего нового Astro блога.'
 author: 'Ученик Astro'
 image:
-    url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'Логотип Astro на тёмном фоне с розовым свечением.'
+  url: 'https://www.bing.com/th?id=OADD2.1161084279502310_1L506LXVB6BKC40&pid=21.2&c=17&roil=0&roit=0&roir=1&roib=1&w=300&h=157&dynsize=1&qlt=90&dpr=2.00'
 tags: ["astro", "ведение блога", "обучение в открытом доступе"]
 ---
-# Моя первая запись в блоге
-
-Опубликовано: 01.07.2022
 
 Добро пожаловать в мой _новый блог_ об изучении Astro! Здесь я буду рассказывать о своем учебном пути, пока я создаю новый сайт.
 
