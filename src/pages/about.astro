@@ -1,53 +1,113 @@
 ---
+import '../styles/global.css';
+
 const pageTitle = "Обо мне";
 
 const identity = {
-  firstName: "Егор",
-  country: "Россия",
-  occupation: "бездарь",
-  hobbies: ["лежать", "спать", "кушать"],
+firstName: "Егор",
+country: "Россия",
+occupation: "Бездарь",
+hobbies: ["лежать", "кушать", "спать"],
 };
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Написание документации"];
 
 const happy = true;
 const finished = false;
-const goal = 3;
+const goal = 133;
+
+const yearsExperience = 0;
+const favoriteTools = ["VS Code", "чат ГПТ", "Гайды от индусов"];
+const motto = "Некст выйграем";
+
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <a href="/">Главная</a>
-    <a href="/about/">О сайте</a>
-    <a href="/blog/">Блог</a>
-    <h1>{pageTitle}</h1>
-    <h2>... и моем новом сайте на Astro!</h2>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>{pageTitle}</title>
 
-    <p>Я прохожу вводный учебник по Astro. Это вторая страница моего сайта, и это первая страница, которую я создал самостоятельно!</p>
 
-    <p>Сайт будет обновляться по мере прохождения учебника, так что заходите сюда снова и следите за моим прогрессом!</p>
+<style define:vars={{skillColor, fontWeight, textCase}}>
+h1 {
+color: purple;
+font-size: 4rem;
+}
+.skill {
+color: var(--skillColor);
+font-weight: var(--fontWeight);
+text-transform: var(--textCase);
+}
+.box {
+padding: 1rem;
+border: 2px solid #ccc;
+margin-top: 1rem;
+border-radius: 8px;
+background: #f7f7ff;
+}
+</style>
+</head>
+<body>
+<nav>
+<a href="/">Главная</a>
+<a href="/about/">О сайте</a>
+<a href="/blog/">Блог</a>
+</nav>
+
+
+<h1>{pageTitle}</h1>
+<h2>... и моем новом сайте на Astro!</h2>
+
+
+<p>Я прохожу вводный учебник по Astro. Это вторая страница моего сайта, и это первая страница, которую я создал самостоятельно!</p>
+
+
+<p>Сайт будет обновляться по мере прохождения учебника, так что заходите сюда снова и следите за моим прогрессом!</p>
+
 
 <p>Несколько фактов обо мне:</p>
 <ul>
-  <li>Меня зовут {identity.firstName}.</li>
-  <li>Моя страна — {identity.country}, а род занятий — {identity.occupation}.</li>
-  {identity.hobbies.length >= 2 &&
-    <li>Два моих увлечения: {identity.hobbies[1]} и {identity.hobbies[2]}</li>
-  }
+<li>Меня зовут {identity.firstName}.</li>
+<li>Моя страна — {identity.country}, а род занятий — {identity.occupation}.</li>
+{identity.hobbies.length >= 2 && (
+<li>Два моих увлечения: {identity.hobbies[1]} и {identity.hobbies[2]}</li>
+)}
+<li>Опыт работы: {yearsExperience} лет.</li>
 </ul>
+
+
 <p>Мои навыки:</p>
 <ul>
-  {skills.map((skill) => <li>{skill}</li>)}
+{skills.map((skill) => <li class="skill">{skill}</li>)}
 </ul>
+
+
 {happy && <p>Я рад(а) изучать Astro!</p>}
+
 
 {finished && <p>Я завершил(а) это руководство!</p>}
 
-{goal === 3 ? <p>Моя цель — завершить за 3 дня.</p> : <p>Моя цель — не 3 дня.</p>}
 
-  </body>
+{goal === 133 ? <p>Моя цель — завершить за 133 дня.</p> : <p>Моя цель — не 3 дня.</p>}
+
+
+<div class="box">
+<h3>Мои любимые инструменты</h3>
+<ul>
+{favoriteTools.map((tool) => <li>{tool}</li>)}
+</ul>
+</div>
+
+
+<div class="box">
+<h3>Мой девиз</h3>
+<p>{motto}</p>
+</div>
+
+
+</body>
 </html>
