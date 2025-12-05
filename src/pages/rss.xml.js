@@ -6,7 +6,7 @@ export async function GET(context) {
   return rss({
     title: 'Ученик Astro | Блог',
     description: 'Мое путешествие по изучению Astro',
-    site: context.site,
+    site: 'https://visionary-gnome-eb06bd.netlify.app/',
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
